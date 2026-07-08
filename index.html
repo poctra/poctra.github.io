@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>poctra - pocket octra</title>
+    <meta
+      name="description"
+      content="poctra is a mobile-first Octra wallet for assets, EVM accounts, bridge, trade, identity, dApps, and Circle apps."
+    />
+    <meta name="theme-color" content="#080a08" />
+    <link rel="icon" href="./assets/poctra.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="poctra home">
+        <img src="./assets/poctra.svg" alt="" />
+        <span>poctra</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#wallet">Wallet</a>
+        <a href="#bridge">Bridge</a>
+        <a href="#trade">Trade</a>
+        <a href="#explore">Explore</a>
+        <a href="#security">Security</a>
+      </nav>
+      <a class="nav-cta" href="#download">Alpha v1.0.0</a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true">
+          <img src="./assets/overview.jpg" alt="" />
+        </div>
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <p class="eyebrow">pocket octra</p>
+          <h1>poctra</h1>
+          <p class="hero-copy">
+            A consumer wallet for Octra, EVM accounts, dApps, bridge flows, swaps, identity, and Circle apps.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#download">
+              <span class="icon plus-icon" aria-hidden="true"></span>
+              Get alpha build
+            </a>
+            <a class="button button-ghost" href="#product">
+              Explore features
+            </a>
+          </div>
+          <div class="hero-metrics" aria-label="Product highlights">
+            <div>
+              <span>Octra + EVM</span>
+              <strong>one wallet</strong>
+            </div>
+            <div>
+              <span>dApps + Circle</span>
+              <strong>in-app browser</strong>
+            </div>
+            <div>
+              <span>Alpha</span>
+              <strong>v1.0.0</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section product-strip" id="product" aria-label="Poctra app preview">
+        <div class="section-heading">
+          <p class="eyebrow">mobile-first wallet</p>
+          <h2>Designed for daily Octra use.</h2>
+          <p>
+            Poctra keeps the wallet surface compact: balances, activity, assets, trade, bridge, and browser
+            workflows stay one tap away without turning the app into a dashboard maze.
+          </p>
+        </div>
+        <div class="phone-row">
+          <figure class="phone-card active">
+            <img src="./assets/overview.jpg" alt="Poctra overview screen showing balance and recent activity" />
+          </figure>
+          <figure class="phone-card">
+            <img src="./assets/assets.jpg" alt="Poctra assets screen" />
+          </figure>
+          <figure class="phone-card">
+            <img src="./assets/trade.jpg" alt="Poctra trade screen" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section feature-grid" id="wallet">
+        <article class="feature-card feature-large">
+          <div class="card-topline">
+            <span class="glyph wallet-glyph" aria-hidden="true"></span>
+            <span>Overview</span>
+          </div>
+          <h3>Octra wallet, EVM account, and activity in one calm surface.</h3>
+          <p>
+            Manage multiple wallets, see Octra Identity names, review recent operations, and keep address-aware
+            send flows close to the balance screen.
+          </p>
+          <ul class="check-list">
+            <li>Multi-wallet drawer with naming and reorder support</li>
+            <li>Octra Identity lookup for recipients and wallet labels</li>
+            <li>Portfolio view and activity center for cross-account history</li>
+          </ul>
+        </article>
+        <article class="feature-card media-card">
+          <img src="./assets/multiwallet.jpg" alt="Poctra multi-wallet management drawer" />
+        </article>
+      </section>
+
+      <section class="section split-feature" id="bridge">
+        <div class="copy-block">
+          <p class="eyebrow">bridge</p>
+          <h2>Bridge OCT and wOCT with clear state.</h2>
+          <p>
+            Poctra keeps bridge status, limits, claim recovery, gas review, and transaction progress visible
+            without burying users in raw contract details.
+          </p>
+          <div class="mini-grid">
+            <div><strong>Lock Left</strong><span>Daily OCT bridge limit</span></div>
+            <div><strong>Unlock Left</strong><span>Daily wOCT return path</span></div>
+            <div><strong>Recover</strong><span>Claim flow for interrupted bridges</span></div>
+          </div>
+        </div>
+        <figure class="screen-frame">
+          <img src="./assets/bridge.jpg" alt="Poctra bridge screen" />
+        </figure>
+      </section>
+
+      <section class="section split-feature reverse" id="trade">
+        <div class="copy-block">
+          <p class="eyebrow">trade</p>
+          <h2>Swap wOCT, ETH, and USDT with a real review step.</h2>
+          <p>
+            The trade surface includes candlestick context, quote review, gas options, price impact, liquidity,
+            and MEV route visibility before signing.
+          </p>
+          <div class="route-panel" aria-label="Swap routes">
+            <span>wOCT</span>
+            <span class="route-arrow">&harr;</span>
+            <span>ETH</span>
+            <span class="route-arrow">&harr;</span>
+            <span>USDT</span>
+          </div>
+        </div>
+        <figure class="screen-frame">
+          <img src="./assets/trade.jpg" alt="Poctra trade and swap screen" />
+        </figure>
+      </section>
+
+      <section class="section feature-grid" id="explore">
+        <article class="feature-card media-card">
+          <img src="./assets/explore.jpg" alt="Poctra explore screen with dApp URL input" />
+        </article>
+        <article class="feature-card feature-large">
+          <div class="card-topline">
+            <span class="glyph browser-glyph" aria-hidden="true"></span>
+            <span>Explore</span>
+          </div>
+          <h3>dApps, oct://, and Circle apps from one browser.</h3>
+          <p>
+            The in-app browser resolves dApp URLs, Octra identities, Octra addresses, and Circle resources while
+            keeping wallet approvals inside Poctra.
+          </p>
+          <ul class="check-list">
+            <li>Octra Identity provider management</li>
+            <li>Circle app loading with protocol-aware URL preview</li>
+            <li>Connected dApps and permission review</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section security" id="security">
+        <div class="section-heading">
+          <p class="eyebrow">security-first UX</p>
+          <h2>Built for sensitive keys and high-context approvals.</h2>
+          <p>
+            Poctra treats every signing moment as a review moment: backup keys require re-auth, dApp approvals
+            use bottom sheets, and send flows show recipient resolution before execution.
+          </p>
+        </div>
+        <div class="security-grid">
+          <article>
+            <span class="security-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M15.5 7.5a4.5 4.5 0 1 0-3.7 4.43L14 14.12V17h2.88L19 19.12 21.12 17l-5.62-5.62a4.48 4.48 0 0 0 0-3.88Z" />
+                <path d="M7.5 7.5h.01" />
+              </svg>
+            </span>
+            <h3>Backup Keys</h3>
+            <p>Reveal mnemonic, Octra Base64 keys, and derived EVM hex keys only after biometric or PIN verification.</p>
+          </article>
+          <article>
+            <span class="security-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 3 5 6v5c0 4.55 2.9 8.83 7 10 4.1-1.17 7-5.45 7-10V6l-7-3Z" />
+                <path d="m9 12 2 2 4-5" />
+              </svg>
+            </span>
+            <h3>Preflight Checks</h3>
+            <p>Review address book status, ENS or Octra Identity resolution, gas readiness, and network compatibility.</p>
+          </article>
+          <article>
+            <span class="security-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M7 3h7l4 4v14H7V3Z" />
+                <path d="M14 3v5h5" />
+                <path d="m9 15 2 2 4-5" />
+              </svg>
+            </span>
+            <h3>Approval Sheets</h3>
+            <p>Connection requests, swaps, bridge steps, and sends use focused bottom review sheets before signing.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section download" id="download">
+        <div>
+          <p class="eyebrow">alpha release</p>
+          <h2>Ready to test poctra?</h2>
+          <p>
+            Poctra is available as an alpha build for early testers. Always verify the release source before using it
+            with valuable assets.
+          </p>
+        </div>
+        <div class="download-card">
+          <img src="./assets/poctra.svg" alt="" />
+          <strong>poctra alpha v1.0.0</strong>
+          <span>Android wallet for Octra and EVM workflows</span>
+          <a class="button button-primary" href="./assets/poctra-alpha-v1.0.0-debug.apk">
+            Download debug APK
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="#top" aria-label="poctra home">
+        <img src="./assets/poctra.svg" alt="" />
+        <span>poctra</span>
+      </a>
+      <p>pocket octra</p>
+      <span>Alpha release for early users. Keep recovery keys private and review every transaction before signing.</span>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
