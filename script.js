@@ -38,11 +38,61 @@ const viewerStage = dialog?.querySelector(".viewer-stage");
 let activeIndex = 0;
 let lastTrigger = null;
 let touchStartX = null;
+let viewerRenderId = 0;
+const viewerImageCache = new Map();
+const usesPoctraCircleBridge = Boolean(window.PoctraAndroid);
+
+const blobToDataUrl = (blob) => new Promise((resolve, reject) => {
+  const reader = new FileReader();
+  reader.onload = () => resolve(String(reader.result || ""));
+  reader.onerror = () => reject(reader.error || new Error("Unable to read screenshot"));
+  reader.readAsDataURL(blob);
+});
+
+const viewerSource = (index) => {
+  const item = screenshots[index];
+  if (usesPoctraCircleBridge) return Promise.resolve(item.src);
+
+  if (!viewerImageCache.has(index)) {
+    viewerImageCache.set(index, fetch(item.src)
+      .then((response) => {
+        if (!response.ok) throw new Error(`Screenshot unavailable (${response.status})`);
+        return response.blob();
+      })
+      .then(blobToDataUrl)
+      .catch((error) => {
+        viewerImageCache.delete(index);
+        throw error;
+      }));
+  }
+  return viewerImageCache.get(index);
+};
 
 const renderViewer = () => {
   if (!dialog || !viewerImage || !viewerTitle || !viewerDescription || !viewerCounter) return;
   const item = screenshots[activeIndex];
-  viewerImage.src = item.src;
+  const renderId = ++viewerRenderId;
+  const renderedIndex = activeIndex;
+  viewerImage.setAttribute("aria-busy", "true");
+  viewerImage.onerror = null;
+  viewerSource(renderedIndex)
+    .then((source) => {
+      if (renderId !== viewerRenderId || renderedIndex !== activeIndex) return;
+      if (source !== item.src) {
+        viewerImage.onerror = () => {
+          viewerImage.onerror = null;
+          viewerImage.src = item.src;
+        };
+      }
+      viewerImage.src = source;
+    })
+    .catch(() => {
+      if (renderId !== viewerRenderId || renderedIndex !== activeIndex) return;
+      viewerImage.src = item.src;
+    })
+    .finally(() => {
+      if (renderId === viewerRenderId) viewerImage.removeAttribute("aria-busy");
+    });
   viewerImage.alt = `${item.title} screen in poctra`;
   viewerTitle.textContent = item.title;
   viewerDescription.textContent = item.description;
