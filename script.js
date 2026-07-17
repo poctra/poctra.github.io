@@ -40,13 +40,7 @@ let lastTrigger = null;
 let touchStartX = null;
 let viewerRenderId = 0;
 const viewerImageCache = new Map();
-
-const updateViewerViewport = () => {
-  if (!dialog) return;
-  const viewportHeight = window.visualViewport?.height || window.innerHeight;
-  const maxImageHeight = Math.max(240, Math.floor(viewportHeight * 0.68));
-  dialog.style.setProperty("--viewer-image-max-height", `${maxImageHeight}px`);
-};
+const usesPoctraCircleBridge = Boolean(window.PoctraAndroid);
 
 const blobToDataUrl = (blob) => new Promise((resolve, reject) => {
   const reader = new FileReader();
@@ -57,6 +51,8 @@ const blobToDataUrl = (blob) => new Promise((resolve, reject) => {
 
 const viewerSource = (index) => {
   const item = screenshots[index];
+  if (usesPoctraCircleBridge) return Promise.resolve(item.src);
+
   if (!viewerImageCache.has(index)) {
     viewerImageCache.set(index, fetch(item.src)
       .then((response) => {
@@ -107,10 +103,8 @@ const openViewer = (index, trigger) => {
   if (!dialog) return;
   activeIndex = Number(index) || 0;
   lastTrigger = trigger;
-  updateViewerViewport();
   renderViewer();
   dialog.showModal();
-  window.requestAnimationFrame(updateViewerViewport);
 };
 
 const moveViewer = (direction) => {
@@ -131,9 +125,6 @@ dialog?.addEventListener("click", (event) => {
 });
 
 dialog?.addEventListener("close", () => lastTrigger?.focus());
-
-window.addEventListener("resize", updateViewerViewport, { passive: true });
-window.visualViewport?.addEventListener("resize", updateViewerViewport, { passive: true });
 
 viewerStage?.addEventListener("touchstart", (event) => {
   touchStartX = event.changedTouches[0]?.clientX ?? null;
