@@ -35,7 +35,7 @@ An [earlier alpha build is available on VirusTotal](https://www.virustotal.com/g
 Poctra loads the Explore catalog from:
 
 ```text
-https://m-tq.github.io/poctra/assets/dapp_list.json
+https://poctra.github.io/assets/dapp_list.json
 ```
 
 Each entry contains four required fields:
